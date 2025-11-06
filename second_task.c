@@ -1,9 +1,9 @@
 /* Task description:
 It is a common task to remove leading and trailing spaces from a string. This function is often called trim().
 
-Write a function that removes the spaces from the beginning and from the end of a string (other spaces must stay)! 
-For example if the original string is "  Hi, what's up?   ", then the new string should be "Hi, what's up?". 
-The function should take two parameters: a source array (containing the original string) and a destination array (to put the trimmed string into). 
+Write a function that removes the spaces from the beginning and from the end of a string (other spaces must stay)!
+For example if the original string is "  Hi, what's up?   ", then the new string should be "Hi, what's up?".
+The function should take two parameters: a source array (containing the original string) and a destination array (to put the trimmed string into).
 You can assume that the destination array is long enough for the resulting string.
 
 
@@ -15,10 +15,40 @@ Modify your function to allocate space for the trimmed string! What is the diffe
 
 */
 
-
 #include <stdio.h>
-
-int main(){
-
-return 0;
+void trim(char *src, char *dest);
+int main()
+{
+    char source[99];
+    char destination[99];
+    printf("Give me a sentence: ");
+    scanf("%[^\n]", source);
+    trim(source, destination);
+    printf("\nTrimmed version: '%s'", destination);
+    return 0;
+}
+void trim(char *src, char *dest)
+{
+    int beg = 0;
+    int end = 0;
+    while (src[beg] == ' ')
+    {
+        beg++;
+    }
+    while (src[end] != '\0')
+    {
+        end++;
+    }
+    end--;
+    while (src[end] == ' ')
+    {
+        end--;
+    }
+    int len = 0;
+    for (int i = 0; i <= (end - beg); i++)
+    {
+        dest[i] = src[i + beg];
+        len++;
+    }
+    dest[len + 1] = '\0';
 }
