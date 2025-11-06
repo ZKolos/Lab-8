@@ -15,11 +15,17 @@ Detecting and handling the end of file properly is often a critical issue in a f
 
 */
 
-
 #include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
 
-int main(){
-
+int main()
+{
+  FILE *file = fopen("file.txt", "r");
+  while (getc(file) != EOF)
+  {
+    /* code */
+  }
 
   return 0;
 }
