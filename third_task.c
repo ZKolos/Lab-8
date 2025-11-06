@@ -11,7 +11,7 @@ int main()
   int len;
   printf("How many values to read? ");
   scanf("%d", &len);
-  double *arr = (double *)malloc(len);
+  double *arr = (double *)malloc(len * sizeof(double));
   printf("Give me the values:\n");
   for (int i = 0; i < len; i++)
   {
